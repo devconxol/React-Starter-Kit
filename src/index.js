@@ -4,17 +4,22 @@ import '../style/main.scss'
 import React from 'react'
 import ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';
-import thunkMiddleware from 'redux-thunk';
 
-import App from './containers/App/App';
 
-const store =createStore(
-    rootReducer,
-    applyMiddleware(thunkMiddleware)
-);
+import App from './containers/App';
+import { SIGN_IN  } from './actions/types'
+
+import store from './store'
+
+
+const token = localStorage.getItem('token');
+// If we have a token, consider the user to be signed In
+
+if(token){
+    //We need to update application sate
+    store.dispatch({type: SIGN_IN})
+}
 
 const rootEl = document.getElementById('root');
 
@@ -26,12 +31,10 @@ const render = Component =>
             </AppContainer>
         </Provider>, rootEl
     );
-
-
 render(App);
 
 if(module.hot){
-    module.hot.accept('./containers/App/App', () => render(App));
+    module.hot.accept('./containers/App', () => render(App));
 
     module.hot.accept('./reducers', () => {
         const nextRootReducer = require('./reducers');

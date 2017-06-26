@@ -1,0 +1,9 @@
+export const APP_LOAD = 'APP_LOAD';
+export const APP_LOAD_FULFILLED = 'APP_LOAD_FULFILLED';
+export const ASYNC_START = 'ASYNC_START';
+export const ASYNC_END = 'ASYNC_END ';
+export const SIGN_OUT = 'SIGN_OUT';
+export const SIGN_UP = 'SIGN_UP';
+export const SIGN_IN = 'SIGN_IN';
+export const LOGIN_PAGE_UNLOADED = 'LOGIN_PAGE_UNLOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
