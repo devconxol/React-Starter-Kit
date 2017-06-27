@@ -15,6 +15,13 @@ export const signUpQuery = (email, password) => {
         }
     )
 };
+export const signOutQuery = () => {
+    return (
+        {
+            "query":"mutation{logout{id email}}"
+        }
+    )
+};
 
 export const currentUserQuery = () => {
     return (

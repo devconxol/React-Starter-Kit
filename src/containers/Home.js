@@ -1,20 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {Route} from 'react-router-dom'
-import SignIn from './Auth/SignIn/index'
-import SignUp from './Auth/SignUp/index'
-import SignOut from './Auth/SignOut/index'
-import Features from '../components/Posts'
-import Header from './Header'
-
-import {Link} from 'react-router-dom'
-import requireAuth from './RequireAuth'
+import {bindActionCreators} from 'redux'
+import { getEvents } from '../actions'
 
 class Home extends Component {
+
+
     render(){
+        this.props.getEvents();
         return (
             <div>
                 <h1>Welcome to {this.props.currentUser? this.props.currentUser.email: null}</h1>
+
             </div>
         )
     }
@@ -26,4 +23,8 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({getEvents}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

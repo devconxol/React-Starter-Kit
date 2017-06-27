@@ -49,10 +49,17 @@ export function signUp(email, password, history) {
 
 
 export function signOut() {
-    localStorage.removeItem('token');
-    return {
-        type: SIGN_OUT
+    return function (dispatch) {
+        agent.Auth.signOut().then(res => {
+            console.log('userOut', res);
+            localStorage.removeItem('token');
+            agent.setToken(null);
+            dispatch({
+                type: SIGN_OUT
+            })
+        });
     }
+
 }
 
 
@@ -105,4 +112,11 @@ export function onLoad(token) {
         dispatch(loadApp(token));
         getCurrentUser(token, dispatch)
     };
+}
+
+
+export function getEvents(events) {
+    return function (dispatch) {
+        agent.Event.list().then(res => console.log('EVENTS', res))
+    }
 }
