@@ -20,8 +20,7 @@ module.exports = ({production = false, browser = false} = {}) => {
         test: /\.js$|\.jsx$/,
         loader: 'babel-loader',
         options: {
-            presets,
-            plugins
+            presets
         },
         exclude: PATH.modules
     };
