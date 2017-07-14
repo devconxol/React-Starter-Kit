@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.75rem;
     min-height: 100vh;
     box-sizing: border-box;
 `;
@@ -18,11 +21,11 @@ const Hero = styled.section``;
 const Content = styled.section`
     width: 100%;
     box-sizing: border-box;
-    margin: 3rem auto;
+    margin: 0rem 1rem;
 `;
 
 const Footer = styled.footer`
-    margin-top: auto
+    margin-top: auto;
 `;
 
 
