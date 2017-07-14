@@ -5,7 +5,8 @@ module.exports = ({production = false, browser = false} = {}) => {
 
     const createPreset = enableHotModuleReplacement => {
         const presets = ['es2015', 'react', 'stage-0'];
-        return enableHotModuleReplacement ? ['react-hmr', ...presets]  : presets
+        console.log('It is hot....', enableHotModuleReplacement);
+        return enableHotModuleReplacement ? [ ...presets]  : presets
     };
 
     const presets = createPreset(enableHotModuleReplacement);
@@ -20,7 +21,8 @@ module.exports = ({production = false, browser = false} = {}) => {
         test: /\.js$|\.jsx$/,
         loader: 'babel-loader',
         options: {
-            presets
+            presets,
+            plugins
         },
         exclude: PATH.modules
     };

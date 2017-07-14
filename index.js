@@ -2,9 +2,11 @@ const path = require('path');
 const express = require('express');
 const app = express();
 
+console.log('I Love You...')
+
 // Step 1: Create & configure a webpack compiler
 const webpack = require('webpack');
-const webpackConfig = require('./oldeweb');
+const webpackConfig = require('./webpack/webpack.config');
 const compiler = webpack(webpackConfig);
 
 const options = {
@@ -21,8 +23,7 @@ const options = {
 app.use(require("webpack-dev-middleware")(compiler, options));
 
 // Step 3: Attach the hot middleware to the compiler & the server
-app.use(require("webpack-hot-middleware")(compiler, {
-    log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
-}));
+app.use(require("webpack-hot-middleware")(compiler));
+
 //app.use(express.static('./public'));
 module.exports = app;

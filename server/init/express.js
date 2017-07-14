@@ -13,6 +13,7 @@ export default (app) => {
         app.use(compression());
         app.use(helmet());
     }
+
     app.use(express.static(path.join(process.cwd(), 'public')));
 
     console.log('--------------------------');

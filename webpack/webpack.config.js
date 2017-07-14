@@ -11,7 +11,7 @@ module.exports  = (env = {}) => {
     console.
     log(`Running webpack in ${process.env.NODE_ENV} mode on ${isBrowser ? 'browser': 'server'}`);
 
-    const hotMiddlewareScript = 'webpack-hot-middleware/client?path=__webpack_hmr&timeout=20000&reload=true';
+    const hotMiddlewareScript = 'webpack-hot-middleware/client';
     const node = {__dirname: true, __filename:true};
 
     const prodServerRender = {
@@ -49,10 +49,10 @@ module.exports  = (env = {}) => {
     };
 
 
-    const devBrowseRender = {
+    const devBrowserRender = {
         devtool: 'eval',
         context: PATHS.app,
-        entry: {app: ['./client', hotMiddlewareScript]},
+        entry: {app: ['babel-polyfill','react-hot-loader/patch',hotMiddlewareScript, './client', ]},
         node,
         output: {
             path: PATHS.assets,
@@ -68,7 +68,7 @@ module.exports  = (env = {}) => {
     const devServerRender = {
         devtool: 'sourcemap',
         context: PATHS.app,
-        entry: {server: '../server/index'},
+        entry: {server: ['babel-polyfill','../server/index']},
         target: 'node',
         node,
         externals,
@@ -83,8 +83,10 @@ module.exports  = (env = {}) => {
         plugins: plugins({production:false, browser:false})
     };
 
+
+
     const prodConfig = isBrowser ? prodBrowseRender : prodServerRender;
-    const devConfig = isBrowser ? devBrowseRender : devServerRender;
+    const devConfig = isBrowser ? devBrowserRender : devServerRender;
     const configuration = isProduction ? prodConfig : devConfig;
 
     return configuration;

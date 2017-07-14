@@ -17,6 +17,9 @@ if(isDebug){
     const compiler = webpack(devBrowserConfig);
     app.use(webpackDevMiddleware(compiler, { noInfo: false, publicPath: devBrowserConfig.output.publicPath }));
     app.use(webpackHotMiddleware(compiler));
+
+
+
 }
 
 initExpress(app);

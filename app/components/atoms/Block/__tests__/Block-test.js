@@ -1,18 +1,15 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import Block from '../index';
-
-const renderer = (props = {}) => shallow(<Block {...props} />);
+import {renderer} from '../../../../tests/setup'
 
 describe('Bock Atom', () => {
     let wrapper;
     it('renders children when passed in', () => {
-        wrapper = renderer({children: 'test'});
+        wrapper = renderer(Block, {children: 'test'});
         expect(wrapper.contains('test')).toBeTruthy()
     });
 
     it('renders props when passed in', () => {
-        wrapper = renderer({id: 'foo'});
+        wrapper = renderer(Block, {id: 'foo'});
         expect(wrapper.find({id: 'foo'})).toHaveLength(1)
     })
 });

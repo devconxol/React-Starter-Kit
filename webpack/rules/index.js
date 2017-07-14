@@ -4,7 +4,7 @@ const css = require('./css');
 
 module.exports = ({production = false, browser = false} = {}) => (
     [
-        javascript(production, browser),
+        javascript({production, browser}),
         css({production, browser}),
         css()
     ]

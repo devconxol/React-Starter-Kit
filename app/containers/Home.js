@@ -5,7 +5,7 @@ import { getEvents } from '../actions'
 
 import SignIn from '../../app/containers/Auth/SignIn'
 import SignOut from '../../app/containers/Auth/SignOut'
-import SignUp from '../../app/containers/Auth/SignUp'
+import SignUp from './Auth/SignUp/oldindex'
 import Posts from '../../app/components/Posts'
 
 
@@ -16,7 +16,7 @@ import Board from '../../app/containers/LiveSession/Board'
 import requireAuth from '../../app/containers/RequireAuth'
 import {Route, Switch} from 'react-router'
 
-import Header from '../../app/containers/Header'
+import Header from './Header'
 import io from 'socket.io-client'
 import {onLoad} from '../actions'
 

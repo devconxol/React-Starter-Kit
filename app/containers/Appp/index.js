@@ -6,7 +6,7 @@ import Home from '../Home'
 import Header from '../Header'
 import SignIn from '../Auth/SignIn'
 import SignOut from '../Auth/SignOut'
-import SignUp from '../Auth/SignUp'
+import SignUp from '../Auth/SignUp/oldindex'
 import Posts from '../../components/Posts'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'

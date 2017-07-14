@@ -1,4 +1,4 @@
-import agent from './agent';
+import agent from './services/api/index';
 
 import {
     ASYNC_START,

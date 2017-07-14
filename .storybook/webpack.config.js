@@ -4,7 +4,6 @@ const rules = require('../webpack/rules');
 const baseConfig = {resolve: resolve, rules: rules({production:false, browser:true})};
 
 module.exports = storybookBaseConfig => {
-    console.log(storybookBaseConfig)
     return Object.assign({}, storybookBaseConfig, {
         entry: Object.assign({}, storybookBaseConfig.entry, {
             preview: ['babel-polyfill'].concat(storybookBaseConfig.entry.preview),

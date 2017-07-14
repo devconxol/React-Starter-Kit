@@ -7,7 +7,7 @@ import {
     SIGN_UP,
     SIGN_OUT
 } from './types'
-import agent from '../agent'
+import agent from '../services/api/index'
 
 export function signIn(email, password, history) {
     return function (dispatch) {

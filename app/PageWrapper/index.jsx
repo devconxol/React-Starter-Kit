@@ -5,8 +5,11 @@ import Helmet from 'react-helmet';
 
 export default ({ComposedComponent = null, title='', meta=[], link=[]} = {}) => {
     class Page extends Component {
+        componentWillMount(){
+            console.log('LoadApp....')
+        }
         render(){
-           // console.log('page title', title );
+            console.log('page title', title );
             return (
                 <div>
                     <Helmet title={title} meta={meta} link={link} />

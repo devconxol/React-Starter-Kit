@@ -1,7 +1,7 @@
 export const signInQuery = (email, password) => {
     return (
         {
-            "query":"mutation LoginUser($email:String, $password:String){login(email:$email,password:$password){token}}",
+            "query":"mutation SignInUser($email:String, $password:String){signin(email:$email,password:$password){token}}",
             "variables": {"email":email, "password":password}
         }
     )
@@ -18,7 +18,7 @@ export const signUpQuery = (email, password) => {
 export const signOutQuery = () => {
     return (
         {
-            "query":"mutation{logout{id email}}"
+            "query":"mutation{signout{id email}}"
         }
     )
 };

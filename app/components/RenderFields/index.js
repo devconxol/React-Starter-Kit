@@ -15,6 +15,7 @@ class RenderFields extends Component {
             return null
         }
     }
+
     getFields(){
         const fieldsMeta = this.props.fields;
         return fieldsMeta.map(field => {

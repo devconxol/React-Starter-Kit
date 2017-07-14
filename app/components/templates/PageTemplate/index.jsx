@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -8,6 +9,7 @@ const Wrapper = styled.div`
 
 const Header = styled.header`
     position: fixed;
+    width: 100%;
     top: 0;
 `;
 
@@ -16,6 +18,7 @@ const Hero = styled.section``;
 const Content = styled.section`
     width: 100%;
     box-sizing: border-box;
+    margin: 3rem auto;
 `;
 
 const Footer = styled.footer`

@@ -17,7 +17,7 @@ npm manifest:
   {
     "name": "React-Starter",
     "version": "1.0.0",
-    "main": "index.jsx",
+    "main": "oldindex.js",
     "license": "MIT",
     "scripts": {
       "build:dev": "cross-env NODE_ENV=development npm run webpack -- --env.server",
